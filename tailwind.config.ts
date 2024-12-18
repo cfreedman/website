@@ -14,5 +14,8 @@ export default {
       },
     },
   },
+  variants: {
+    width: ["hover"],
+  },
   plugins: [],
 } satisfies Config;
