@@ -2,9 +2,9 @@ import Image from "next/image";
 
 import Avatar from "@/components/Avatar";
 import NavItem from "@/components/NavItem";
-import BlueskyLogo from "../public/bluesky-logo.png";
-import GithubLogo from "../public/github-mark.png";
-import LinkedinLogo from "../public/linkedin-logo.png";
+import BlueskyLogo from "../public/bluesky-logo.svg";
+import GithubLogo from "../public/github-mark.svg";
+import LinkedinLogo from "../public/linkedin-logo.svg";
 import OtterImage from "../public/otter.png";
 import MononokeGif from "../../public/mononoke.gif";
 
@@ -21,13 +21,13 @@ export default function Home() {
         <p className="mb-[5px] text-sm">Other Contacts</p>
         <div className="flex flex-row gap-x-1">
           <a
-            className="rounded-l p-1 hover:bg-slate-200"
+            className="rounded-md p-1 hover:bg-slate-200"
             href="https://github.com/cfreedman"
           >
             <Image src={GithubLogo} alt="Github Link" width={22} height={22} />
           </a>
           <a
-            className="rounded-l p-1 hover:bg-slate-200"
+            className="rounded-md p-1 hover:bg-slate-200"
             href="https://google.com"
           >
             <Image
@@ -38,7 +38,7 @@ export default function Home() {
             />
           </a>
           <a
-            className="rounded-l p-1 hover:bg-slate-200"
+            className="rounded-md p-1 hover:bg-slate-200"
             href="https://linkedin.com/in/collum-freedman-aa13a321b/"
           >
             <Image
