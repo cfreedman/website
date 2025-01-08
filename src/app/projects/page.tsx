@@ -9,9 +9,9 @@ import GithubLogo from "../../public/github-mark.svg";
 export default function ProjectsPage(): JSX.Element {
   return (
     <>
-      <h1 className="self-start">Projects</h1>
+      <h1 className="mb-[50px] self-start text-lg font-bold">Projects</h1>
       <div className="mb-[200px] w-full">
-        <h3 className="mb-[15px]">Rust Raytracer</h3>
+        <h3 className="mb-[15px] font-semibold underline">Rust Raytracer</h3>
         <p>
           A raytracer built in Rust from first principles following the guidance
           outlined in the <i>Raytracing in One Weekend</i> book series.
@@ -36,7 +36,7 @@ export default function ProjectsPage(): JSX.Element {
         </div>
       </div>
       <div className="mb-[200px] w-full">
-        <h3 className="mb-[15px]">Pewpewboom</h3>
+        <h3 className="mb-[15px] font-semibold underline">Pewpewboom</h3>
         <p className="mb-[15px]">
           Turn-based strategy game based on laser redirection with base-building
           and economy elements. Built entirely in the open-source and
@@ -69,7 +69,7 @@ export default function ProjectsPage(): JSX.Element {
         </div>
       </div>
       <div className="mb-[200px] w-full">
-        <h3 className="mb-[15px]">JyutTube</h3>
+        <h3 className="mb-[15px] font-semibold underline">JyutTube</h3>
         <p>
           A browser extension for performing automatic transliteration of
           Chinese character subtitles in Youtube videos into their romanized
@@ -88,7 +88,7 @@ export default function ProjectsPage(): JSX.Element {
             pin3 cin1 lei5
           </p>
         </div>
-        <div className="mt-[10px] flex flex-row gap-x-[10px]">
+        <div className="mt-[20px] flex flex-row gap-x-[10px]">
           <a href="https://github.com/cfreedman">
             <Image
               className="rounded-md p-1 hover:bg-slate-200"
