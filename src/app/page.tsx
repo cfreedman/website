@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import Avatar from "@/components/Avatar";
-import NavItem from "@/components/NavItem";
+import NavItem from "@/components/NavMenu";
 import BlueskyLogo from "../public/bluesky-logo.svg";
 import GithubLogo from "../public/github-mark.svg";
 import LinkedinLogo from "../public/linkedin-logo.svg";
@@ -14,9 +14,9 @@ export default function Home() {
       <div>
         <Avatar image={OtterImage.src} text="Collum Freedman" />
         <ul className="mb-5">
-          <NavItem text="About Me" link="/" />
-          <NavItem text="Work" link="/" />
-          <NavItem text="Posts" link="/" />
+          <NavItem label="About Me" link="/" />
+          <NavItem label="Work" isGroup={true} sublinks={[{ label: "Projects", link: "/" }, { label: "Math", link: "/" }, { label: "Art", link: "/" }]} />
+          <NavItem label="Posts" link="/" />
         </ul>
         <p className="mb-[5px] text-sm">Other Contacts</p>
         <div className="flex flex-row gap-x-1">
@@ -53,7 +53,7 @@ export default function Home() {
       </div>
       <div className="relative min-h-[500px] max-w-lg">
         <h3 className="font-base mb-4">
-          Hi, my name is Collum. I'm a software engineer currently working as a
+          Hi, my name is Collum. I&apos;m a software engineer currently working as a
           freelancer on a range of projects in the web and game programming
           domain.
         </h3>
@@ -63,7 +63,7 @@ export default function Home() {
           graphics programming as well as practicing my Cantonese.
         </p>
         <p className="absolute bottom-0 right-0 text-xs">
-          "Everything will turn out all right, the world is built on that"
+          &quot;Everything will turn out all right, the world is built on that&quot;
         </p>
       </div>
       <Image
