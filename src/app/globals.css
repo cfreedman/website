@@ -18,10 +18,8 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: monospace;
-  max-width: 70%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 130px auto;
 }

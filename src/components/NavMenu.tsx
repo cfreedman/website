@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { JSX, useState } from "react";
 
 interface NavSingleProps {
@@ -16,20 +17,20 @@ interface NavGroupProps {
 
 function NavSingle({ label, link }: NavSingleProps): JSX.Element {
   return (
-    <li className="w-fit py-[5px]">
+    <div className="w-fit py-[5px]">
       {link ? (
-        <a
+        <Link
           href={link}
           className="relative text-sm after:absolute after:bottom-[-3px] after:left-0 after:block after:h-[2px] after:w-0 after:bg-black after:duration-300 after:content-[''] after:hover:w-[calc(100%+5px)]"
         >
           {label}
-        </a>
+        </Link>
       ) : (
         <p className="relative text-sm after:absolute after:bottom-[-3px] after:left-0 after:block after:h-[2px] after:w-0 after:bg-black after:duration-300 after:content-[''] after:hover:w-[calc(100%+5px)]">
           {label}
         </p>
       )}
-    </li>
+    </div>
   );
 }
 
@@ -37,7 +38,7 @@ function NavGroup({ label, sublinks }: NavGroupProps): JSX.Element {
   const [isOpen, setOpen] = useState(false);
 
   return (
-    <li className="w-fit">
+    <div className="w-fit">
       <p
         className="relative w-fit text-sm after:absolute after:bottom-[-3px] after:left-0 after:block after:h-[2px] after:w-0 after:bg-black after:duration-300 after:content-[''] after:hover:w-[calc(100%+5px)]"
         onClick={() => setOpen((prev) => !prev)}
@@ -55,7 +56,7 @@ function NavGroup({ label, sublinks }: NavGroupProps): JSX.Element {
           ))}
         </div>
       )}
-    </li>
+    </div>
   );
 }
 

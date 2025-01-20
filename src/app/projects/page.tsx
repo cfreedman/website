@@ -8,7 +8,7 @@ import GithubLogo from "../../public/github-mark.svg";
 
 export default function ProjectsPage(): JSX.Element {
   return (
-    <>
+    <div className="flex flex-col">
       <h1 className="mb-[50px] self-start text-lg font-bold">Projects</h1>
       <div className="mb-[200px] w-full">
         <h3 className="mb-[15px] font-semibold underline">Rust Raytracer</h3>
@@ -109,6 +109,6 @@ export default function ProjectsPage(): JSX.Element {
           </a>
         </div>
       </div>
-    </>
+    </div>
   );
 }

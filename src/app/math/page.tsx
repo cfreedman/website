@@ -2,7 +2,7 @@ import { JSX } from "react";
 
 export default function MathPage(): JSX.Element {
   return (
-    <>
+    <div className="flex flex-col">
       <h3>
         I&apos;ve always enjoyed studying math both out of obligation for school
         and continuing in my own interest. In an effort to shorn up my own
@@ -25,10 +25,10 @@ export default function MathPage(): JSX.Element {
           </li>
         </ul>
       </div>
-      <h3>
+      <h3 className="mt-[20px]">
         If you&apos;re interested yourself, stuck on a hard problem, or just
         curious, you can check out my progress and solutions below.
       </h3>
-    </>
+    </div>
   );
 }
