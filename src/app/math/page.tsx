@@ -4,12 +4,12 @@ export default function MathPage(): JSX.Element {
   return (
     <>
       <h3>
-        I&apos;ve always enjoyed studying math both out of obligation for school and
-        continuing in my own interest. In an effort to shorn up my own knowledge
-        from university and (hopefully) prevent it from leaking out of my brain
-        as well as to delve into more advanced topics in the future, I&apos;m working
-        through some typical topics and trying to generate solutions for some
-        classic texts.
+        I&apos;ve always enjoyed studying math both out of obligation for school
+        and continuing in my own interest. In an effort to shorn up my own
+        knowledge from university and (hopefully) prevent it from leaking out of
+        my brain as well as to delve into more advanced topics in the future,
+        I&apos;m working through some typical topics and trying to generate
+        solutions for some classic texts.
       </h3>
       <div className="self-start">
         <p className="mb-[15px] mt-[30px]">Texts I&apos;m currently reading:</p>
@@ -25,7 +25,10 @@ export default function MathPage(): JSX.Element {
           </li>
         </ul>
       </div>
-      <h3>If you&apos;re interested yourself, stuck on a hard problem, or just curious, you can check out my progress and solutions below.</h3>
+      <h3>
+        If you&apos;re interested yourself, stuck on a hard problem, or just
+        curious, you can check out my progress and solutions below.
+      </h3>
     </>
   );
 }

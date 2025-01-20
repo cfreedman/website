@@ -9,9 +9,9 @@ const nextConfig: NextConfig = {
         port: "",
         pathname: "/media/*",
         search: "",
-      }
-    ]
-  }
+      },
+    ],
+  },
   /* config options here */
 };
 
