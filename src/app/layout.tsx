@@ -10,7 +10,7 @@ import BlueskyLogo from "../public/bluesky-logo.svg";
 import GithubLogo from "../public/github-mark.svg";
 import LinkedinLogo from "../public/linkedin-logo.svg";
 import OtterImage from "../public/otter.png";
-import MononokeGif from "../public/mononoke.gif";
+import MononokeGif from "../public/output-onlinegiftools.gif";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -100,6 +100,7 @@ export default function RootLayout({
           width={100}
           height={100}
           className="fixed bottom-0 right-0"
+          unoptimized
         />
       </body>
     </html>
