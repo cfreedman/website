@@ -17,6 +17,7 @@ export default function Avatar({ image, text }: AvatarProps): JSX.Element {
         className="mb-4 h-16 w-16 rounded-full object-cover duration-200 hover:scale-[110%]"
         width={25}
         height={25}
+        unoptimized={true}
       />
       <p className="text-sm">{text}</p>
     </div>

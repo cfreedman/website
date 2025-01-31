@@ -2,15 +2,15 @@ import { JSX } from "react";
 
 import Image from "next/image";
 
-import ChromeLogo from "../../public/chrome-logo.svg";
-import GameIcon from "../../public/game.svg";
-import GithubLogo from "../../public/github-mark.svg";
+import ChromeLogo from "../../public/icons/chrome-logo.svg";
+import GameIcon from "../../public/icons/game.svg";
+import GithubLogo from "../../public/icons/github-mark.svg";
 
 export default function ProjectsPage(): JSX.Element {
   return (
     <div className="flex flex-col">
       <h1 className="mb-[50px] self-start text-lg font-bold">Projects</h1>
-      <div className="mb-[200px] w-full">
+      <div className="mb-[100px] w-full">
         <h3 className="mb-[15px] font-semibold underline">Rust Raytracer</h3>
         <p>
           A raytracer built in Rust from first principles following the guidance
@@ -35,7 +35,7 @@ export default function ProjectsPage(): JSX.Element {
           </a>
         </div>
       </div>
-      <div className="mb-[200px] w-full">
+      <div className="mb-[100px] w-full">
         <h3 className="mb-[15px] font-semibold underline">Pewpewboom</h3>
         <p className="mb-[15px]">
           Turn-based strategy game based on laser redirection with base-building
@@ -88,25 +88,22 @@ export default function ProjectsPage(): JSX.Element {
             pin3 cin1 lei5
           </p>
         </div>
-        <div className="mt-[20px] flex flex-row gap-x-[10px]">
-          <a href="https://github.com/cfreedman">
-            <Image
-              className="rounded-md p-1 hover:bg-slate-200"
-              src={GithubLogo}
-              alt="Github Link"
-              width={35}
-              height={35}
-            />
-          </a>
-          <a>
-            <Image
-              className="rounded-md p-1 hover:bg-slate-200"
-              src={ChromeLogo}
-              alt="Chrome Extension Link"
-              width={35}
-              height={35}
-            />
-          </a>
+        <div className="mt-[20px] flex flex-row items-center gap-x-[10px]">
+          <Image
+            className="cursor-not-allowed rounded-md p-1 hover:bg-slate-200"
+            src={GithubLogo}
+            alt="Github Link"
+            width={35}
+            height={35}
+          />
+          <Image
+            className="cursor-not-allowed rounded-md p-1 hover:bg-slate-200"
+            src={ChromeLogo}
+            alt="Chrome Extension Link"
+            width={35}
+            height={35}
+          />
+          <p>**Currently being updated**</p>
         </div>
       </div>
     </div>
