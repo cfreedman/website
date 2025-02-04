@@ -68,7 +68,7 @@ export default function ProjectsPage(): JSX.Element {
           </a>
         </div>
       </div>
-      <div className="mb-[200px] w-full">
+      <div className="w-full">
         <h3 className="mb-[15px] font-semibold underline">JyutTube</h3>
         <p>
           A browser extension for performing automatic transliteration of

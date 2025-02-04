@@ -38,7 +38,7 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} relative`}>
         <div className="mx-auto mt-[130px] flex max-w-[90%] flex-col items-start justify-start antialiased sm:flex-row lg:max-w-[70%]">
           <div className="mr-[120px] hidden min-w-[145px] flex-col items-start sm:flex xl:mr-[300px]">
             <Avatar image={OtterImage.src} text="Collum Freedman" />
@@ -53,7 +53,7 @@ export default function RootLayout({
                   { label: "Art", link: "/art" },
                 ]}
               />
-              <NavItem label="Posts" link="/" />
+              <NavItem label="Posts" link="/posts" />
             </div>
             <p className="mb-[5px] text-sm">Other Contacts</p>
             <div className="mb-[5px] flex flex-row gap-x-1">
@@ -106,7 +106,7 @@ export default function RootLayout({
         <Image
           src={HowlClimbImage}
           alt="Howl Climb Background"
-          className="fixed bottom-0 left-0 z-[-1] min-h-[550px] w-[100%] object-cover transition-transform duration-700 ease-in-out hover:scale-[102%]"
+          className="min-h-[550px] w-[100%] flex-auto object-cover transition-transform duration-700 ease-in-out hover:scale-[102%]"
         />
       </body>
     </html>
