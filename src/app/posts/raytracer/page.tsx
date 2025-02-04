@@ -31,6 +31,32 @@ export default function Page(): JSX.Element {
         ray bouncing around the scene many layers deep does not help this sense
         of a &quot;black box&quot; predicament.
       </p>
+      <p>
+        The bug of note that I&apos;ll mention here came about when I noticed
+        some shadowing visual artifacts left over in some of my scenes. The
+        image below gives a good example of the additional darkening cast by the
+        projection of one quadrilateral plane onto another below it.
+      </p>
+      <p>Image should go HERE</p>
+      <p>
+        The mechanical origins of shadows in a rendered scene are from a ray
+        bouncing between two surfaces repeatedly before eventually escaping to
+        terminate in a skybox hit or hitting the upper recursion limit set for
+        the program. Each bounce and thus further recursion into the raytracing
+        routine adds a darkening factor to the eventual output color for that
+        particular ray calculation.
+      </p>
+      <p>
+        It makes sense then that two surfaces close together will produce clear
+        shadowing since rays scattered on average like the the surface&apos;s
+        normal and are highly likely to collide with the second surface just
+        above and vice versa, leading to this exact recursive darkening cycle.
+        However, this effect should decrease substantially with additional
+        distance between the two surfaces, since more scattering rays will avoid
+        collision between the pair surfaces and escape into other parts of the
+        scene, avoiding the cycle. In my scene, the shadowing appears to strong
+        relative to the distance between the planes.
+      </p>
       <p className="mb-[18px]"></p>
       <h4>Further Refinements and Next Steps</h4>
       <p className="mb-[18px]">
