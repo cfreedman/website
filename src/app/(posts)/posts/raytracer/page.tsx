@@ -1,16 +1,22 @@
 "use client";
 
 import { JSX, useEffect } from "react";
+import Image from "next/image";
 
-import hljs from "highlight.js";
+import hljs from "highlight.js/lib/core";
 import rust from "highlight.js/lib/languages/rust";
 
+import RaytracingSetupImage from "@/photos/ray-tracing_setup.jpg";
+import QuadCorrectImage from "@/photos/raytracing_quad_correct.png";
+import QuadIncorrectImage from "@/photos/raytracing_quad_incorrect.png";
+
+hljs.configure({ cssSelector: "code" });
 hljs.registerLanguage("rust", rust);
 
-const headerCss = "my-[15px] text-[20px]";
+const headerCss = "my-[15px] text-[20px] font-semibold";
 const paragraphCss = "my-[25px] text-[16px]";
-const codeContainerCss = "w-[100%]";
-const codeCss = "w-[100%] p-[40px]";
+const codeContainerCss = "w-[100%] hidden md:block";
+// const codeCss = "w-[100%] p-[40px]";
 
 export default function Page(): JSX.Element {
   useEffect(() => {
@@ -18,7 +24,7 @@ export default function Page(): JSX.Element {
   }, []);
 
   return (
-    <div className="flex flex-col">
+    <div className="flex max-w-[1200px] flex-col">
       <h3 className="mb-[40px] text-[30px] font-semibold underline">
         Building a raytracer in Rust
       </h3>
@@ -38,7 +44,48 @@ export default function Page(): JSX.Element {
         programming, I chose to go ahead and use it to build the project.
       </p>
       <h4 className={headerCss}>The Inner Working of a Raytracer</h4>
-      <p className={paragraphCss}></p>
+      <p className={paragraphCss}>
+        Raytracing works by simulating the real-world analog of rays of light
+        traveling from the outside world, scattering across objects, before
+        eventually entering the apeture of the camera in the scene. Using the
+        optical magic of <b>Helmholtz&apos;s reciprocity</b>, which states that
+        a ray and its reverse will follow essentially identical optical
+        adventures from reflections, refractions, and absorbtion into media
+        present in the scene, we can perform this process in reverse and instead
+        shoot numerous simulated rays out of a source in 3D space, track where
+        they pass through a flat &quot;image screen&quot; in front of the camera
+        source, and then follow their subsequent optical path. The end
+        &quot;color&quot; of this single ray is calculated from a combination of
+        values accumulated onto the ray along its path from scattering off world
+        objects; different materials and properties of the objects will
+        contribute to this as well as the ray&apos;s path in different ways.
+        Further, the resultant color becomes of the color of the pixel on the
+        &quot;image screen&quot; we placed in front of the camera in the first
+        place - with some additional complexities.
+      </p>
+      <p className={paragraphCss}>
+        You can imagine that a single point in 3D space represents the camera
+        and in front of where that camera is facing is positioned this image
+        screen divided into the pixels of our desired final image resolution.
+        Each pixel in that image derives its color from a ray (or average over a
+        collection of rays) that passes from the camera, through that point on
+        the screen, and into the rest of the scene.
+      </p>
+      <Image
+        src={RaytracingSetupImage}
+        alt="Raytracing setup"
+        className="mx-auto my-[60px] w-[90%]"
+      />
+      <p className={paragraphCss}>
+        If the ray, traveling along its path, ends up colliding with some object
+        in the scene, the particular color properties of that object at the
+        point of impact contribute to the ray&apos;s final color calculation,
+        and so the associated pixel that it first passed through. The ray&apos;s
+        path and the color calculate doesn&apos; stop there though; instead the
+        ray might, depending on the properties of the hit object, scatter off
+        the surface in another direction, refract through the object with a
+        slightly altered path, or even be absorbed completely.
+      </p>
       <h4 className={headerCss}>Using the Right Polymorphism in Rust</h4>
       <p className={paragraphCss}>
         Implementing some of the fundamental elements in the raytracer offered
@@ -72,11 +119,12 @@ export default function Page(): JSX.Element {
       </p>
       <p className={paragraphCss}>
         In its current state, I&apos;m not happy with how I implemented
-        materials. I used an enum to define an overarching <code>Material</code>{" "}
-        type to wrap the four variants like so
+        materials. I used an enum to define an overarching{" "}
+        <code className="language-rust">Material</code> type to wrap the four
+        variants like so
       </p>
       <pre className={codeContainerCss}>
-        <code className={`${codeCss} language-rust`}>{`
+        <code className="language-rust">{`
 pub enum Material {
     Lambertian(Lambertian),
     Dielectric(Dielectric),
@@ -86,14 +134,16 @@ pub enum Material {
         `}</code>
       </pre>
       <p className={paragraphCss}>
-        The four variant types <code>Lambertian</code>, <code>Dielectric</code>,{" "}
-        <code>Metal</code>, and <code>Isotropic</code>, then each implemented
+        The four variant types <code className="language-rust">Lambertian</code>
+        , <code className="language-rust">Dielectric</code>,{" "}
+        <code className="language-rust">Metal</code>, and{" "}
+        <code className="language-rust">Isotropic</code>, then each implemented
         their own individual version of a scatter function, which are used in
         the Material in a match statement to call the correct scatter depending
         on the underlying variant.
       </p>
       <pre className={codeContainerCss}>
-        <code>{`
+        <code className="language-rust">{`
 impl Material {
     pub fn scatter(
         &self,
@@ -130,15 +180,16 @@ impl Metal {
 
 impl Isotropic {
     pub fn scatter( ... ) -> bool { ... }
-}         `}</code>
+}         
+         `}</code>
       </pre>
       <p className={paragraphCss}>
-        A better solution, I think, would be to define <code>Material</code> as
-        a trait with a shared scatter function that participating types must
-        implement.
+        A better solution, I think, would be to define{" "}
+        <code className="language-rust">Material</code> as a trait with a shared
+        scatter function that participating types must implement.
       </p>
       <pre className={codeContainerCss}>
-        <code>
+        <code className="language-rust">
           {`
 pub trait Material {
     pub fn scatter(
@@ -162,26 +213,27 @@ pub trait Material {
       </p>
       <p className={paragraphCss}>
         In part, some of what drew me first to the enum representation is that,
-        provided all the variant implement the Rust <code>Copy</code> trait, it
-        can automatically be derived on the enum parent as well. As soon as a
-        type implements <code>Copy</code>, this eliminates much of the
+        provided all the variant implement the Rust{" "}
+        <code className="language-rust">Copy</code> trait, it can automatically
+        be derived on the enum parent as well. As soon as a type implements{" "}
+        <code className="language-rust">Copy</code>, this eliminates much of the
         difficulty Rust is famous for involving its memory management rules and
-        ownership. Types with <code>Copy</code> can be thought of as purely
-        stack-allocated and, in passing them into functions as arguments or
-        other execution blocks, it makes no meaningful difference to the
-        compiler if you use the value itself or a reference to it. Instead, that
-        type is immediately <i>passed-by-value</i> into function calls by the
-        Rust compiler.
+        ownership. Types with <code className="language-rust">Copy</code> can be
+        thought of as purely stack-allocated and, in passing them into functions
+        as arguments or other execution blocks, it makes no meaningful
+        difference to the compiler if you use the value itself or a reference to
+        it. Instead, that type is immediately <i>passed-by-value</i> into
+        function calls by the Rust compiler.
       </p>
       <p className={paragraphCss}>
         In contast, when refererring to a trait object in the polymorphic way
         necessary for our raytracer, Rust requires us to use a{" "}
-        <code>{`Box<dyn Material>`}</code>, which is heap allocatted. In this
-        case, all of the particularities of moved ownership and reference
-        management come into play, requiring much more careful attention.
-        Ultimately though, this is the better abstraction and there no need to
-        shy away from the features that, though lending some additional
-        difficulty, give Rust much of its safety and power.
+        <code className="language-rust">{`Box<dyn Material>`}</code>, which is
+        heap allocatted. In this case, all of the particularities of moved
+        ownership and reference management come into play, requiring much more
+        careful attention. Ultimately though, this is the better abstraction and
+        there no need to shy away from the features that, though lending some
+        additional difficulty, give Rust much of its safety and power.
       </p>
       <h4 className={headerCss}>Bug of the Project (BOTP)!</h4>
       <p className={paragraphCss}>
@@ -199,7 +251,11 @@ pub trait Material {
         image below gives a good example of the additional darkening cast by the
         projection of one quadrilateral plane onto another below it.
       </p>
-      <p className={paragraphCss}>Image should go HERE</p>
+      <Image
+        src={QuadIncorrectImage}
+        alt="Incorrect quad"
+        className="mx-auto my-[60px] w-[75%]"
+      />
       <p className={paragraphCss}>
         The mechanical origins of shadows in a rendered scene are from a ray
         bouncing between two surfaces repeatedly before eventually escaping to
@@ -210,7 +266,7 @@ pub trait Material {
         from this code snippet below:
       </p>
       <pre className={codeContainerCss}>
-        <code>{`
+        <code className="language-rust">{`
 if let Some(material) = hit_data.clone().material {
     let emitted_color = material.emit(hit_data.point, hit_data.u, hit_data.v);
     if !material.scatter(ray, &mut hit_data, &mut attenuation, &mut scattered) {
@@ -222,18 +278,18 @@ if let Some(material) = hit_data.clone().material {
       </pre>
       <p className={paragraphCss}>
         Any ray making contact with a material will scatter with the material
-        imparting an <code>attenuation</code> factor to the later recursive call
-        that is by definition in (0,1) in the normalized color space, leading to
-        darkening of the resultant color. It makes sense then that two surfaces
-        close together will produce clear shadowing since rays scattered on
-        average like the the surface&apos;s normal and are highly likely to
-        collide with the second surface just above and vice versa, leading to
-        this exact recursive darkening cycle. However, this effect should
-        decrease substantially with additional distance between the two
-        surfaces, since more scattering rays will avoid collision between the
-        pair surfaces and escape into other parts of the scene, avoiding the
-        cycle. In my scene, the shadowing instead appears too strong relative to
-        the distance between the planes.
+        imparting an <code className="language-rust">attenuation</code> factor
+        to the later recursive call that is by definition in (0,1) in the
+        normalized color space, leading to darkening of the resultant color. It
+        makes sense then that two surfaces close together will produce clear
+        shadowing since rays scattered on average like the the surface&apos;s
+        normal and are highly likely to collide with the second surface just
+        above and vice versa, leading to this exact recursive darkening cycle.
+        However, this effect should decrease substantially with additional
+        distance between the two surfaces, since more scattering rays will avoid
+        collision between the pair surfaces and escape into other parts of the
+        scene, avoiding the cycle. In my scene, the shadowing instead appears
+        too strong relative to the distance between the planes.
       </p>
       <p className={paragraphCss}>
         When I first came across this issue, my first steps were to try to
@@ -263,7 +319,7 @@ if let Some(material) = hit_data.clone().material {
         visual diffuse pattern.
       </p>
       <pre className={codeContainerCss}>
-        <code>{`
+        <code className="language-rust">{`
 let mut scatter_direction = hit_data.normal + Vec3::random_unit_vector();
         `}</code>
       </pre>
@@ -277,7 +333,11 @@ let mut scatter_direction = hit_data.normal + Vec3::random_unit_vector();
         incorrect normal scattering between planes. A simple corrected to a unit
         vector normal fixed everything!
       </p>
-      <p className={paragraphCss}></p>
+      <Image
+        src={QuadCorrectImage}
+        alt="Quad correct image"
+        className="mx-auto my-[60px] w-[75%]"
+      />
       <h4 className={headerCss}>Further Refinements and Next Steps</h4>
       <p className={paragraphCss}>
         Besides the retrospective design mistakes I mentioned above, there are a
@@ -291,7 +351,7 @@ let mut scatter_direction = hit_data.normal + Vec3::random_unit_vector();
         messages to be passed or synchronized across these entirely independent
         tracing runs, adding in parallelism would be a straightforward refactor
         with immediate benefits to run time. The best tool in Rust for this
-        additional is <a href="https://github.com/rayon-rs/rayon">Rayon</a>, a
+        additional is <a href="https://github.com/rayon-rs/rayon">rayon</a>, a
         lightweight crate for data-parallelism.
       </p>
       <p className={paragraphCss}>

@@ -40,7 +40,7 @@ function NavGroup({ label, sublinks }: NavGroupProps): JSX.Element {
   return (
     <div className="w-fit">
       <p
-        className="relative w-fit text-sm after:absolute after:bottom-[-3px] after:left-0 after:block after:h-[2px] after:w-0 after:bg-black after:duration-300 after:content-[''] after:hover:w-[calc(100%+5px)]"
+        className="relative w-fit cursor-pointer text-sm after:absolute after:bottom-[-3px] after:left-0 after:block after:h-[2px] after:w-0 after:bg-black after:duration-300 after:content-[''] after:hover:w-[calc(100%+5px)]"
         onClick={() => setOpen((prev) => !prev)}
       >
         {label}

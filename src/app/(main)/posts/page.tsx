@@ -7,7 +7,7 @@ const blogPosts: PostProps[] = [
     title: "Building a raytracer in Rust",
     date: "November 25, 2024",
     summary: "Stuff",
-    link: "/",
+    link: "/posts/raytracer",
   },
   {
     title: "The Missing Tool for the Cantonese Learner",

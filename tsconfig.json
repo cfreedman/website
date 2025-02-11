@@ -23,6 +23,7 @@
       "@/photos/*": ["./src/public/photos/*"],
       "@/icons/*": ["./src/public/icons/*"],
       "@/gifs/*": ["./src/public/gifs/*"],
+      "@/*": ["./src/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

@@ -2,9 +2,9 @@ import { JSX } from "react";
 
 import Image from "next/image";
 
-import ChromeLogo from "../../public/icons/chrome-logo.svg";
-import GameIcon from "../../public/icons/game.svg";
-import GithubLogo from "../../public/icons/github-mark.svg";
+import ChromeLogo from "@/icons/chrome-logo.svg";
+import GameIcon from "@/icons/game.svg";
+import GithubLogo from "@/icons/github-mark.svg";
 
 export default function ProjectsPage(): JSX.Element {
   return (

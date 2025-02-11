@@ -24,3 +24,14 @@ body {
   justify-content: center;
   min-height: 100vh;
 }
+
+pre code.hljs {
+  padding: 20px 0px 20px 40px !important;
+  border-radius: 10px;
+  margin: 50px;
+}
+
+.hjls {
+  display: inline;
+  border-radius: 50%;
+}
