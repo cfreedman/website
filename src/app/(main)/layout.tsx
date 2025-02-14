@@ -1,4 +1,5 @@
 import "../globals.css";
+import TopMenu from "@/components/TopMenu";
 import SideMenu from "@/components/SideMenu";
 
 export default function MainLayout({
@@ -8,6 +9,7 @@ export default function MainLayout({
 }>) {
   return (
     <>
+      <TopMenu />
       <SideMenu />
       {children}
     </>

@@ -38,7 +38,7 @@ export default function RootLayout({
           alt="Clouds"
           className="max-h-[350px] min-h-[200px] w-[100%] flex-auto object-cover transition-transform duration-700 ease-in-out hover:scale-[102%]"
         />
-        <div className="mx-auto mt-[100px] flex max-w-[90%] flex-col items-start justify-start antialiased sm:flex-row lg:max-w-[70%]">
+        <div className="mx-auto mt-[100px] flex max-w-[90%] flex-col items-center antialiased sm:flex-row sm:items-start sm:justify-start lg:max-w-[70%]">
           {children}
         </div>
         <Image

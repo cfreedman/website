@@ -28,19 +28,19 @@ export default function SideMenu(): JSX.Element {
       <p className="mb-[5px] text-sm">Other Contacts</p>
       <div className="mb-[5px] flex flex-row gap-x-1">
         <a
-          className="rounded-md p-1 hover:bg-slate-200"
+          className="rounded-md p-1 hover:bg-[#e7e7d5]"
           href="https://github.com/cfreedman"
         >
           <Image src={GithubLogo} alt="Github Link" width={22} height={22} />
         </a>
         <a
-          className="rounded-md p-1 hover:bg-slate-200"
+          className="rounded-md p-1 hover:bg-[#e7e7d5]"
           href="https://google.com"
         >
           <Image src={BlueskyLogo} alt="Bluesky Link" width={22} height={22} />
         </a>
         <a
-          className="rounded-md p-1 hover:bg-slate-200"
+          className="rounded-md p-1 hover:bg-[#e7e7d5]"
           href="https://linkedin.com/in/collum-freedman-aa13a321b/"
         >
           <Image

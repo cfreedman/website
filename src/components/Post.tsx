@@ -14,7 +14,7 @@ export default function Post({
   link,
 }: PostProps): JSX.Element {
   return (
-    <a href={link} className="mb-[35px] block p-[8px] hover:bg-white">
+    <a href={link} className="mb-[35px] block p-[8px] hover:bg-[#e7e7d5]">
       <h3 className="mb-[10px] text-[14px] font-bold underline">{title}</h3>
       <p className="mb-[15px] text-[12px]">{summary}</p>
       <p className="text-[10px] font-extralight">{date}</p>

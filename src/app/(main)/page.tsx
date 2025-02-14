@@ -5,8 +5,8 @@ export default function Home() {
         <h3 className="mb-4 text-sm lg:text-base">
           Hi, my name is Collum. I&apos;m a software engineer currently working
           as a freelancer on a range of projects in the web and game programming
-          domain. I predominately work with Rust, Typescript/Javascript, and
-          Python, however I&apos;m always interested in trying out new tech
+          domain. I predominately work with Typescript/Javascript, Python, and
+          Rust, however I&apos;m always interested in trying out new tech
           stacks.
         </h3>
         <p className="text-sm lg:text-base">

@@ -5,6 +5,7 @@ import Image from "next/image";
 import ChromeLogo from "@/icons/chrome-logo.svg";
 import GameIcon from "@/icons/game.svg";
 import GithubLogo from "@/icons/github-mark.svg";
+import Link from "next/link";
 
 export default function ProjectsPage(): JSX.Element {
   return (
@@ -24,15 +25,15 @@ export default function ProjectsPage(): JSX.Element {
           computation and element instancing.
         </p>
         <div className="mt-[10px] flex flex-row gap-x-[10px]">
-          <a href="https://github.com/cfreedman">
+          <Link href="https://github.com/cfreedman">
             <Image
-              className="rounded-md p-1 hover:bg-slate-200"
+              className="rounded-md p-1 hover:bg-[#e7e7d5]"
               src={GithubLogo}
               alt="Github Link"
               width={35}
               height={35}
             />
-          </a>
+          </Link>
         </div>
       </div>
       <div className="mb-[100px] w-full">
@@ -48,24 +49,24 @@ export default function ProjectsPage(): JSX.Element {
           the button below!
         </p>
         <div className="mt-[10px] flex flex-row gap-x-[8px]">
-          <a href="https://github.com/cfreedman">
+          <Link href="https://github.com/cfreedman">
             <Image
-              className="rounded-md p-1 hover:bg-slate-200"
+              className="rounded-md p-1 hover:bg-[#e7e7d5]"
               src={GithubLogo}
               alt="Github Link"
               width={35}
               height={35}
             />
-          </a>
-          <a href="/">
+          </Link>
+          <Link className="cursor-not-allowed" href="/">
             <Image
-              className="rounded-md p-1 hover:bg-slate-200"
+              className="rounded-md p-1 hover:bg-[#e7e7d5]"
               src={GameIcon}
               alt="Game Link"
               width={35}
               height={35}
             />
-          </a>
+          </Link>
         </div>
       </div>
       <div className="w-full">
@@ -89,15 +90,17 @@ export default function ProjectsPage(): JSX.Element {
           </p>
         </div>
         <div className="mt-[20px] flex flex-row items-center gap-x-[10px]">
+          <Link href="https://github.com/cfreedman/jyuttube">
+            <Image
+              className="rounded-md p-1 hover:bg-[#e7e7d5]"
+              src={GithubLogo}
+              alt="Github Link"
+              width={35}
+              height={35}
+            />
+          </Link>
           <Image
-            className="cursor-not-allowed rounded-md p-1 hover:bg-slate-200"
-            src={GithubLogo}
-            alt="Github Link"
-            width={35}
-            height={35}
-          />
-          <Image
-            className="cursor-not-allowed rounded-md p-1 hover:bg-slate-200"
+            className="cursor-not-allowed rounded-md p-1 hover:bg-[#e7e7d5]"
             src={ChromeLogo}
             alt="Chrome Extension Link"
             width={35}
