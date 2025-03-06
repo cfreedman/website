@@ -6,12 +6,12 @@ import NavItem from "@/components/NavMenu";
 import BlueskyLogo from "@/icons/bluesky-logo.svg";
 import GithubLogo from "@/icons/github-mark.svg";
 import LinkedinLogo from "@/icons/linkedin-logo.svg";
-import OtterImage from "@/photos/otter.png";
+import PiranesiImage from "@/photos/piranesi.png";
 
 export default function SideMenu(): JSX.Element {
   return (
     <div className="mr-[120px] hidden min-h-[450px] min-w-[145px] flex-col items-start sm:flex xl:mr-[300px]">
-      <Avatar image={OtterImage.src} text="Collum Freedman" />
+      <Avatar image={PiranesiImage.src} text="Collum Freedman" />
       <div className="mb-5">
         <NavItem label="About Me" link="/" />
         <NavItem
