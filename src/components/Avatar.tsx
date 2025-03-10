@@ -21,9 +21,9 @@ export default function Avatar({
       <Image
         src={image}
         alt="Avatar image"
-        className="h-16 w-16 rounded-full object-cover duration-200 hover:scale-[110%]"
-        width={40}
-        height={40}
+        className="rounded-full object-cover duration-200 hover:scale-[110%]"
+        width={100}
+        height={100}
         unoptimized={true}
       />
       {text && <p className="mt-[20px] text-sm">{text}</p>}

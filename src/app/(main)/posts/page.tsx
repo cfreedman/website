@@ -9,6 +9,12 @@ const blogPosts: PostProps[] = [
     summary: "An adventure in making pretty spheres and planes",
     link: "/posts/raytracer",
   },
+  {
+    title: "Jyutping tool for comprehensible input Chinese learning",
+    date: "January 10, 2025",
+    summary: "Bridging the gap between the written-oral vocabulary disconnect",
+    link: "/posts/jyuttube",
+  },
 ];
 
 export default function PostsPage(): JSX.Element {
