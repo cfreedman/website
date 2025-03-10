@@ -37,7 +37,9 @@ export default function ProjectsPage(): JSX.Element {
         </div>
       </div>
       <div className="mb-[100px] w-full">
-        <h3 className="mb-[15px] font-semibold underline">Pewpewboom</h3>
+        <h3 className="mb-[15px] font-semibold underline">
+          Luma - A Laser-based Base Building Game
+        </h3>
         <p className="mb-[15px]">
           Turn-based strategy game based on laser redirection with base-building
           and economy elements. Built entirely in the open-source and

@@ -15,7 +15,6 @@ export default function TopMenu(): JSX.Element {
           isGroup={true}
           sublinks={[
             { label: "Projects", link: "/projects" },
-            { label: "Math", link: "/math" },
             { label: "Art", link: "/art" },
           ]}
         />
